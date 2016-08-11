@@ -5,6 +5,5 @@
 log
 .env
 *.swp
-Gemfile.lock
 .ruby-version
 pkg
