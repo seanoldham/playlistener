@@ -10,11 +10,11 @@ require 'rspotify'
 
 Mongoid.load!(File.expand_path('config/mongoid.yml', __dir__), ENV['RACK_ENV'])
 
-SlackAmberAlert::App.instance.prepare!
+SlackRubyBotServer::App.instance.prepare!
 
 Thread.new do
-  SlackAmberAlert::Service.start!
-  SlackAmberAlert::Service.instance.run_periodic_timer!
+  SlackRubyBotServer::Service.start!
+  SlackRubyBotServer::Service.instance.run_periodic_timer!
 end
 
 run Api::Middleware.instance
