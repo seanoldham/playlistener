@@ -17,4 +17,4 @@ Thread.new do
   SlackRubyBotServer::Service.instance.run_periodic_timer!
 end
 
-run Api::Middleware.instance
+run SlackRubyBotServer::Api::Middleware.instance
