@@ -12,6 +12,9 @@ module SlackPlaylistener
       # Find Track on Spotify
       def self.find_track(track_id, client, data)
         found_track = RSpotify::Track.find(track_id)
+        
+        # Right now it just spits it back out to Slack.
+        # Eventually, this will add the song to a given playlist
         client.say(channel: data.channel, text: found_track.name)
       rescue
         puts track_id
