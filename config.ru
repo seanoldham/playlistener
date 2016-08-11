@@ -1,9 +1,11 @@
+$LOAD_PATH.unshift(File.dirname(__FILE__))
+
 ENV['RACK_ENV'] ||= 'development'
 
-Bundler.require :default
+require 'bundler/setup'
+Bundler.require :default, ENV['RACK_ENV']
 
-require_relative 'commands'
-require_relative 'hooks'
+require 'slack-ruby-bot-server'
 require 'rspotify'
 
 Mongoid.load!(File.expand_path('config/mongoid.yml', __dir__), ENV['RACK_ENV'])
@@ -16,7 +18,11 @@ end
 
 NewRelic::Agent.manual_start
 
-SlackRubyBotServer::App.instance.prepare!
-SlackRubyBotServer::Service.start!
+SlackAmberAlert::App.instance.prepare!
 
-run SlackRubyBotServer::Api::Middleware.instance
+Thread.new do
+  SlackAmberAlert::Service.start!
+  SlackAmberAlert::Service.instance.run_periodic_timer!
+end
+
+run Api::Middleware.instance

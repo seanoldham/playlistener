@@ -42,7 +42,7 @@ $(document).ready(function() {
         code: code
       },
       success: function(data) {
-        SlackRubyBotServer.message('Team successfully registered!<br><br>DM <b>@bot</b> or create a <b>#channel</b> and invite <b>@bot</b> to it.');
+        SlackRubyBotServer.message('Team successfully registered!<br><br>Invite <b>@playlistener</b> to a channel and watch him work!');
       },
       error: SlackRubyBotServer.error
     });

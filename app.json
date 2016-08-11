@@ -1,8 +1,8 @@
 {
-	"name": "Slack Bot Server",
-	"description": "A Slack bot server.",
-	"respository": "https://github.com/dblock/slack-ruby-bot-server",
-	"keywords": ["slack", "bots"],
+	"name": "Playlistener",
+	"description": "Grabs Spotify links from Slack and auto-populates a playlist.",
+	"respository": "https://github.com/seanosaur/playlistener",
+	"keywords": ["slack", "bots", "spotify"],
 	"addons": [
 		"mongolab"
 	]
