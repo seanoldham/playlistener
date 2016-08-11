@@ -28,5 +28,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rack-rewrite'
   spec.add_dependency 'rack-server-pages'
   spec.add_dependency 'foreman'
-  spec.add_dependency 'rspotify'
 end
